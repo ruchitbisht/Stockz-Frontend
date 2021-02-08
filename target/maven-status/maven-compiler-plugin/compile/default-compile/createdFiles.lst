@@ -1,0 +1,4 @@
+com\hype\stockz\controller\HomeController.class
+com\hype\stockz\config\AppViewResolver.class
+com\hype\stockz\config\WebAppInitializer.class
+com\hype\stockz\controller\ProductController.class
