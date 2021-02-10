@@ -11,7 +11,7 @@
 <body>
 	<div class="container">
 			<h1 style="text-align: center;font-weight: bold;">Sneaker Database</h1><br><br>
-			<form action="add-product" modelAttribute="product" method="get">
+			<form action="add-product" modelAttribute="product" method="post" enctype="multipart/form-data">
 
 					<div class="form-group">
 						<label for="name" class="sr-only">Shoe Name</label>
@@ -37,6 +37,10 @@
 					<div class="form-group">
 						<label for="description" class="sr-only">Description</label>
 						<input type="text" class="form-control" id="description" name="description" placeholder="Shoes Description">
+					</div>
+					<div class="form-group">
+						<label for="image" class="sr-only">Product Image:</label>
+						<input type="file" class="form-control" id="image" name="image" >
 					</div>
 					
 					<button type="submit" style="text-align: center" class="btn btn-primary">Add Sneaker</button> ||

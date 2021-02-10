@@ -41,7 +41,7 @@
 			<td>
 			<a href="<c:url value='/delete/${product.id}'/>" >Delete</a>|
 			<a href="<c:url value='/update/${product.id}'/>" >Update</a>|
-			<a href="<c:url value='/view-product?id=s${product.id}'/>" >View</a>
+			<a href="<c:url value='/view-product?id=${product.id}'/>" >View</a>
 			
 				 
 			</td>

@@ -50,6 +50,7 @@ public class ProductController {
 		MultipartFile image=product.getImage();
 		String rootDirectory= request.getSession().getServletContext().getRealPath("/");
 		Path path = Paths.get(rootDirectory+"/resources/images/"+product.getId()+".png");
+		System.out.println("Image Path : " + path);
 		if(image != null && !image.isEmpty()) {
 			try {
 				image.transferTo(new File(path.toString()));
@@ -70,16 +71,22 @@ public class ProductController {
 		dao.deleteProduct(product);
 		return "redirect:/display-products";
 	}
-//	@GetMapping("/update/{id}")
-//	public String updateProductForm(@PathVariable("id") int productId, Model model) {
-//	Product	product =dao.getProductById(productId);
-//		
-//		return "updateProduct";
-//	}
+	@GetMapping("/update/{id}")
+	public String updateProductForm(@PathVariable("id") int productId, Model model) {
+	Product	prUpd =dao.getProductById(productId);
+	model.addAttribute("Product", prUpd);	
+		return "updateProduct";
+	}
+	@PostMapping("/update")
+	public String updateProduct(@ModelAttribute("Product") Product product) 
+	{
+		dao.updateProduct(product);
+		return "redirect:/display-products";
+	}
 	@GetMapping("/view-product")
 	public String viewProductPage(@RequestParam("id") int id, Model model) {
-		Product prod = dao.getProductById(id);
-		model.addAttribute("product", prod);
+		Product product = dao.getProductById(id);
+		model.addAttribute("product", product);
 		return "displayProduct";
 	}
  }
